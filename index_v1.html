@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Momentum for Your Brand">
+    <meta name="keywords" content="Digital Marketing, SEO, PPC, Social Media, Content Creation">
+    <meta name="author" content="Imtiaz Karim">
+    <title>Prayer Wheel Limited</title>
+    <link rel="icon" href="assets/images/prayerwheel-favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Playfair Display';
+            src: url('assets/fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Playfair Display';
+            src: url('assets/fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Playfair Display';
+            src: url('assets/fonts/Playfair_Display/static/PlayfairDisplay-Italic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+        @font-face {
+            font-family: 'Roboto';
+            src: url('assets/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Roboto';
+            src: url('assets/fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Roboto';
+            src: url('assets/fonts/Roboto/Roboto-Italic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            color: black;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo-container img {
+            height: 70px;
+        }
+
+        .menu-btn {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 4rem;
+            color: #0b6671;
+        }
+
+        .fullscreen-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(11, 102, 113, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            color: white;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .menu-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .menu-column {
+            flex: 1 1 30%;
+            text-align: left;
+        }
+
+        .menu-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-list li {
+            margin-bottom: 10px;
+        }
+
+        .menu-list a {
+            font-family: 'Roboto', sans-serif;
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .menu-list a:hover {
+            color: #A1D6E2;
+        }
+
+        /* Social Icons */
+        .menu-footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #A1D6E2;
+        }
+
+        /* Useful Links */
+        .useful-links {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .useful-links li {
+            margin: 5px 0;
+        }
+
+        .useful-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .useful-links a:hover {
+            color: #A1D6E2;
+        }
+
+        .menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            z-index: 1100;
+        }
+
+        .banner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background: linear-gradient(to right, #A1D6E2, #F1F1F2);
+        }
+
+        .banner-left {
+            flex: 1 1 45%;
+            text-align: center;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .banner-left h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0b6671;
+            margin-bottom: 20px;
+        }
+
+        .banner-left h1 span {
+            display: inline-block;
+            background: #A1D6E2;
+            padding: 5px 10px;
+            animation: textHighlight 4s infinite alternate;
+        }
+
+        .banner-left p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .cta-buttons a {
+            font-family: 'Roboto', sans-serif;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .cta-buttons .discover-more {
+            background-color: #0b6671;
+            color: white;
+        }
+
+        .cta-buttons .discover-more:hover {
+            background-color: #A1D6E2;
+        }
+
+        .cta-buttons .free-quote {
+            background-color: white;
+            color: #0b6671;
+            border: 2px solid #0b6671;
+        }
+
+        .cta-buttons .free-quote:hover {
+            background-color: #0b6671;
+            color: white;
+        }
+
+        .banner-right {
+            flex: 1 1 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo-animation {
+            width: 100%;
+            max-width: 300px;
+            position: relative;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            overflow: visible;
+        }
+
+        .cls-1 {
+            animation: gentleMotion 6s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+        }
+
+        .cls-1:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .cls-1:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .cls-1:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .cls-1:nth-child(4) {
+            animation-delay: 0.9s;
+        }
+
+        .floating-icons {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+
+        .icon {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            animation: floatIcons 5s ease-in-out, fadeOut 5s ease-in-out;
+        }
+
+        .icon svg {
+            fill: #A1D6E2;
+        }
+
+        @keyframes floatIcons {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            50% {
+                transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.2);
+            }
+            100% {
+                transform: translate(calc(-50% + var(--x2)), calc(-50% + var(--y2))) scale(1);
+            }
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes gentleMotion {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes textHighlight {
+            0% { background: #A1D6E2; }
+            100% { background: #A1D6E2; }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+       /* Add this after the existing @media (max-width: 768px) styles */
+
+/* Mobile view specific styles */
+@media (max-width: 768px) {
+    .menu-container {
+        flex-direction: column;
+        gap: 10px; /* Reduce gap for mobile view */
+    }
+
+    .collapsible {
+        cursor: pointer;
+        position: relative;
+        font-size: 1.2rem;
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+    .collapsible:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .collapsible::after {
+        content: '\25BC'; /* Down arrow */
+        position: absolute;
+        right: 15px;
+        font-size: 1.2rem;
+        color: white;
+        transition: transform 0.3s ease;
+    }
+
+    .collapsible.active::after {
+        transform: rotate(180deg); /* Up arrow */
+    }
+
+    .submenu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .submenu.active {
+        max-height: 200px; /* Adjust this to fit your submenu content */
+        padding: 10px;
+    }
+
+    .submenu a {
+        font-size: 1rem;
+        text-decoration: none;
+        color: white;
+        display: block;
+        padding: 5px 0;
+        text-align: center;
+        transition: color 0.3s ease;
+    }
+
+    .submenu a:hover {
+        color: #A1D6E2;
+    }
+}
+
+
+        footer {
+            background-color: #0b6671;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+</style>
+
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="assets/images/prayerwheel-logo.svg" alt="Prayer Wheel Logo">
+        </div>
+        <button class="menu-btn" id="menuBtn">&#9776;</button>
+    </header>
+
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <button class="menu-close" id="menuClose">&times;</button>
+        <div class="menu-container">
+            <div class="menu-column">
+                <h3 class="menu-title">About</h3>
+                <ul class="menu-list">
+                    <li><a href="#company-overview">Company Overview</a></li>
+                    <li><a href="#our-team">Our Team</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                </ul>
+            </div>
+            <div class="menu-column">
+                <h3 class="menu-title">Services</h3>
+                <ul class="menu-list">
+                    <li><a href="#seo-services">SEO Services</a></li>
+                    <li><a href="#content-marketing">Content Marketing</a></li>
+                    <li><a href="#social-media">Social Media Marketing</a></li>
+                    <li><a href="#paid-ads">Paid Ads</a></li>
+                </ul>
+            </div>
+            <div class="menu-column">
+                <h3 class="menu-title">Portfolio</h3>
+                <ul class="menu-list">
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#client-feedback">Client Feedback</a></li>
+                    <li><a href="#our-projects">Our Projects</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="menu-footer">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/prayerwheel.com.bd"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/prayerwheel.com.bd"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.youtube.com/@PrayerWheelLimited"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.linkedin.com/company/prayer-wheel-limited"><i class="bi bi-linkedin"></i></a>
+            </div>
+            <ul class="useful-links">
+                <li><a href="#privacy-policy">Privacy Policy</a></li>
+                <li><a href="#terms-conditions">Terms & Conditions</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    
+
+    <section class="banner">
+        <div class="banner-left">
+            <h1>Momentum for Your <span>Brand</span></h1>
+            <p>We help you scale your brand through innovation and storytelling.</p>
+            <div class="cta-buttons">
+                <a href="#" class="discover-more">Discover More</a>
+                <a href="#" class="free-quote">Free Quote</a>
+            </div>
+        </div>
+        <div class="banner-right">
+            <div class="logo-animation">
+                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 -20 216.77 380.02">
+                    <defs>
+                        <style>.cls-1 { fill: #0b6671; }</style>
+                    </defs>
+                    <polygon class="cls-1" points="216.77 128.13 24.83 169.35 24.83 120.19 216.77 78.97 216.77 128.13" />
+                    <polygon class="cls-1" points="191.94 194.65 0 235.86 0 186.7 191.94 145.49 191.94 194.65" />
+                    <polygon class="cls-1" points="216.77 250.48 24.83 291.7 24.83 242.54 216.77 201.32 216.77 250.48" />
+                    <polygon class="cls-1" points="191.94 72.1 0 113.31 0 91.18 191.94 49.97 191.94 72.1" />
+                    <polygon class="cls-1" points="191.94 289.36 0 330.58 0 308.45 191.94 267.23 191.94 289.36" />
+                    <polygon class="cls-1" points="143.23 48.22 48.71 68.51 48.71 46.38 143.23 26.09 143.23 48.22" />
+                    <polygon class="cls-1" points="104.79 22.13 87.14 25.92 87.14 3.79 104.79 0 104.79 22.13" />
+                    <polygon class="cls-1" points="104.79 342.23 87.14 346.02 87.14 323.89 104.79 320.1 104.79 342.23" />
+                </svg>
+            </div>
+            <div class="floating-icons" id="floatingIcons">
+                <!-- Icons will be dynamically added -->
+            </div>
+        </div>
+        
+        
+    </section>
+
+    <footer style="background-color: #0b6671; color: white; padding: 40px 0; font-family: 'Roboto', sans-serif;">
+        <div class="container">
+            <!-- Sign-up Section -->
+            <div class="text-center mb-4">
+                <h5 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 20px;">Sign up for newsletter</h5>
+                <button style="background-color: white; color: #0b6671; border: none; padding: 10px 20px; border-radius: 25px; font-weight: bold; cursor: pointer;">Sign Up</button>
+            </div>
+            <hr style="border-top: 1px solid rgba(255, 255, 255, 0.2);">
+            
+            <div class="row text-center text-md-start">
+                <!-- Logo & Address -->
+                <div class="col-md-3 mb-4">
+                    <img src="assets/images/prayerwheel-logo-outline-white.svg" alt="Prayer Wheel Logo" style="height: 80px; margin-bottom: 20px;">
+                    <p>Prayer Wheel Limited</p>
+                    <p>
+                        Sherina Plaza 2, Deira Waterfront Development,<br>
+                        Shop Number 03 & 04, Dubai, Dubai 1111, AE
+                    </p>
+                    <p>
+                        House 45/4, Kazipara, Akbar Hossain Lane,<br>
+                        Vill: Durgapur, Thana: Kumarkhali, Kushtia, Khulna 7010, BD
+                    </p>
+                </div>
+    
+                <!-- Navigation Links -->
+                <div class="col-md-3 mb-4">
+                    <h6 class="mb-3 text-uppercase">Quick Links</h6>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="#about" style="color: white; text-decoration: none;">About</a></li>
+                        <li><a href="#services" style="color: white; text-decoration: none;">Services</a></li>
+                        <li><a href="#privacy" style="color: white; text-decoration: none;">Privacy Policy</a></li>
+                        <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Contact Info -->
+                <div class="col-md-3 mb-4">
+                    <h6 class="mb-3 text-uppercase">Contact</h6>
+                    <p><i class="bi bi-telephone"></i> +8809678 286 286</p>
+                    <p><i class="bi bi-envelope"></i> info@prayerwheel.com</p>
+                </div>
+    
+                <!-- Social Icons -->
+                <div class="col-md-3 text-center text-md-start">
+                    <h6 class="mb-3 text-uppercase">Follow Us</h6>
+                    <a href="https://www.facebook.com/prayerwheel.com.bd" style="margin-right: 10px; color: white;"><i class="bi bi-facebook" style="font-size: 1.5rem;"></i></a>
+                    <a href="https://www.instagram.com/prayerwheel.com.bd" style="margin-right: 10px; color: white;"><i class="bi bi-instagram" style="font-size: 1.5rem;"></i></a>
+                    <a href="https://www.youtube.com/@PrayerWheelLimited" style="margin-right: 10px; color: white;"><i class="bi bi-youtube" style="font-size: 1.5rem;"></i></a>
+                    <a href="https://www.linkedin.com/company/prayer-wheel-limited" style="margin-right: 10px; color: white;"><i class="bi bi-linkedin" style="font-size: 1.5rem;"></i></a>
+                </div>
+            </div>
+    
+            <hr style="border-top: 1px solid rgba(255, 255, 255, 0.2);">
+            
+            <!-- Bottom Section -->
+            <div class="d-flex justify-content-between align-items-center">
+                <p>&copy; 2025 Prayer Wheel Limited. All Rights Reserved.</p>
+                <p style="margin: 0;">Made by <strong>Imtiaz Karim</strong></p>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Manage Fullscreen Menu
+            const menuBtn = document.getElementById('menuBtn');
+            const menuClose = document.getElementById('menuClose');
+            const fullscreenMenu = document.getElementById('fullscreenMenu');
+    
+            // Ensure the menu is hidden on page load
+            fullscreenMenu.style.transform = 'translateX(100%)';
+    
+            menuBtn.addEventListener('click', () => {
+                fullscreenMenu.style.transform = 'translateX(0)'; // Show the menu
+            });
+    
+            menuClose.addEventListener('click', () => {
+                fullscreenMenu.style.transform = 'translateX(100%)'; // Hide the menu
+            });
+    
+            // Prevent menu from showing automatically
+            window.addEventListener('load', () => {
+                fullscreenMenu.style.transform = 'translateX(100%)';
+            });
+    
+            // Floating Icons Animation
+            const floatingIconsContainer = document.getElementById("floatingIcons");
+            const icons = [
+                "facebook.svg",
+                "google.svg",
+                "instagram.svg",
+                "linkedin.svg",
+                "messenger.svg",
+                "pinterest.svg",
+                "reddit.svg",
+                "snapchat.svg",
+                "telegram.svg",
+                "tiktok.svg",
+                "whatsapp.svg",
+                "wordpress.svg",
+                "x-twitter.svg",
+                "youtube.svg"
+            ];
+    
+            function createFloatingIcon() {
+                // Create a new icon element
+                const icon = document.createElement("img");
+                icon.src = `assets/icons/${icons[Math.floor(Math.random() * icons.length)]}`;
+                icon.className = "icon";
+    
+                // Set random animation properties
+                icon.style.setProperty("--x", `${Math.random() * 200 - 100}px`);
+                icon.style.setProperty("--y", `${Math.random() * 200 - 100}px`);
+                icon.style.setProperty("--x2", `${Math.random() * 300 - 150}px`);
+                icon.style.setProperty("--y2", `${Math.random() * 300 - 150}px`);
+    
+                // Append the icon to the container
+                floatingIconsContainer.appendChild(icon);
+    
+                // Remove the icon after the animation ends
+                setTimeout(() => {
+                    floatingIconsContainer.removeChild(icon);
+                }, 5000); // Match the CSS animation duration
+            }
+    
+            // Generate icons at random intervals
+            setInterval(createFloatingIcon, 1000); // Creates a new icon every second
+        });
+    </script>    
+    
+</body>
+</html>
